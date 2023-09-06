@@ -3,18 +3,12 @@
       name: nginx
       state: installed
   
-  # - name: start and enable nginx
-  #   ansible.builtin.service:
-  #     name: nginx
-  #     state: started
-  #     enabled: yes
+  - name: start and enable nginx
+    ansible.builtin.service:
+      name: nginx
+      state: started
+      enabled: yes
 
-  - name: enable nginx
-    ansible.builtin.shell: systemctl enable nginx
-
-  - name: start nginx
-    ansible.builtin.shell: systemctl start nginx
-  
   - name: remove html directory
     ansible.builtin.file:
       path: /usr/share/nginx/html
